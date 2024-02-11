@@ -8,7 +8,8 @@
 # The following license files were not able to be identified and are
 # represented as "Unknown" below, you will need to check them yourself:
 #   LICENSE
-LICENSE = "Unknown"
+# install -m 0755 ${S}/scull.ko ${D}${base_libdir}/modules/${KERNEL_VERSION}/
+LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f098732a73b5f6f3430472f5b094ffdb"
 
 SRC_URI = "git://git@github.com/cu-ecen-aeld/assignment-7-ericksyndrome.git;protocol=ssh;branch=master \
@@ -57,5 +58,4 @@ do_install () {
 	install -d ${D}${sysconfdir}/init.d
 	install -d ${D}${base_libdir}/modules/${KERNEL_VERSION}/
 	install -m 0755 ${WORKDIR}/scull_init ${D}${sysconfdir}/init.d
-	install -m 0755 ${S}/scull.ko ${D}${base_libdir}/modules/${KERNEL_VERSION}/
 }
