@@ -18,7 +18,7 @@ SRC_URI = "git://git@github.com/cu-ecen-aeld/assignment-7-ericksyndrome.git;prot
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "8c9c6c85178e5b6582510a4fcd80f930973ee0eb"
+SRCREV = "44bfb45de65b34f2375bebbd6ef83c20d94c3974"
 
 S = "${WORKDIR}/git"
 
