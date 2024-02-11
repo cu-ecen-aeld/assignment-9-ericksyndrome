@@ -1,0 +1,19 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+  start)
+     echo "Loading scull"
+     #load_device
+     start-stop-daemon -S -n scull
+     ;;
+  stop)
+     echo "Unloading scull"
+     #unload_device
+     #echo 
+     ;;
+  *)
+     echo "Usage: $0 {start|stop}"
+     exit 1
+esac
+exit 0
