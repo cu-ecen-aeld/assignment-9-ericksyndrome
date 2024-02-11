@@ -33,30 +33,14 @@ EXTRA_OEMAKE:append:task-install = " -C ${STAGING_KERNEL_DIR} M=${S}/scull"
 INITSCRIPT_PACKAGES = "${PN}"
 INITSCRIPT_NAME:${PN} = "scull_init"
 
+KERNEL_MODULE_AUTOLOAD += "scull"
 
-FILES:${PN} += "${sysconfdir}/*"
+EXTRA_OEMAKE += "KERNELDIR=${STAGING_KERNEL_DIR}"
+EXTRA_OEMAKE:append:task-install = " -C ${STAGING_KERNEL_DIR} M=${S}/scull"
+RPROVIDES:${PN} += "kernel-module-scull"
+FILES:${PN} += "${INIT_D_DIR}/${INITSCRIPT_NAME}"
 
-do_configure () {
-	:
-}
-
-do_compile () {
-	oe_runmake
-}
-
-KERNEL_VERSION = "5.15.124-yocto-standard"
-
-do_install () {
-	# TODO: Install your binaries/scripts here.
-	# Be sure to install the target directory with install -d first
-	# Yocto variables ${D} and ${S} are useful here, which you can read about at 
-	# https://docs.yoctoproject.org/ref-manual/variables.html?highlight=workdir#term-D
-	# and
-	# https://docs.yoctoproject.org/ref-manual/variables.html?highlight=workdir#term-S
-	# See example at https://github.com/cu-ecen-aeld/ecen5013-yocto/blob/ecen5013-hello-world/meta-ecen5013/recipes-ecen5013/ecen5013-hello-world/ecen5013-hello-world_git.bb
-
-	install -d ${D}${sysconfdir}/init.d
-	install -d ${D}${base_libdir}/modules/${KERNEL_VERSION}/
-	install -m 0755 ${WORKDIR}/scull_init ${D}${sysconfdir}/init.d
-	install -m 0755 ${S}/scull.ko ${D}${base_libdir}/modules/${KERNEL_VERSION}/
+do_install:append () {
+    install -d ${D}${INIT_D_DIR}
+    install -m 0755 ${WORKDIR}/files/${INITSCRIPT_NAME} ${D}${INIT_D_DIR}/${INITSCRIPT_NAME}
 }
