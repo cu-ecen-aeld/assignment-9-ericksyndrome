@@ -8,7 +8,7 @@
 # The following license files were not able to be identified and are
 # represented as "Unknown" below, you will need to check them yourself:
 #   LICENSE
-# install -m 0755 ${S}/scull.ko ${D}${base_libdir}/modules/${KERNEL_VERSION}/
+# 
 LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f098732a73b5f6f3430472f5b094ffdb"
 
@@ -23,12 +23,12 @@ SRCREV = "8c9c6c85178e5b6582510a4fcd80f930973ee0eb"
 S = "${WORKDIR}/git"
 
 inherit module
-#inherit update-rc.d
+inherit update-rc.d
 
 
-MODULES_INSTALL_TARGET = "install"
+#MODULES_INSTALL_TARGET = "install"
 EXTRA_OEMAKE += "KERNELDIR=${STAGING_KERNEL_DIR}"
-#EXTRA_OEMAKE:append:task-install = " -C ${STAGING_KERNEL_DIR} M=${S}/scull"
+EXTRA_OEMAKE:append:task-install = " -C ${STAGING_KERNEL_DIR} M=${S}/scull"
 
 INITSCRIPT_PACKAGES = "${PN}"
 INITSCRIPT_NAME:${PN} = "scull_init"
@@ -58,4 +58,5 @@ do_install () {
 	install -d ${D}${sysconfdir}/init.d
 	install -d ${D}${base_libdir}/modules/${KERNEL_VERSION}/
 	install -m 0755 ${WORKDIR}/scull_init ${D}${sysconfdir}/init.d
+	install -m 0755 ${S}/scull.ko ${D}${base_libdir}/modules/${KERNEL_VERSION}/
 }
