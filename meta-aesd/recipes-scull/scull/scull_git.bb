@@ -20,7 +20,7 @@ SRC_URI = "git://git@github.com/cu-ecen-aeld/assignment-7-ericksyndrome.git;prot
 PV = "1.0+git${SRCPV}"
 SRCREV = "44bfb45de65b34f2375bebbd6ef83c20d94c3974"
 
-S = "${WORKDIR}/git"
+S = "${WORKDIR}/git/scull"
 
 inherit module
 
