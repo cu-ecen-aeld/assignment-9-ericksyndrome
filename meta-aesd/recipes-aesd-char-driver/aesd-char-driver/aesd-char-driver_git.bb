@@ -12,7 +12,7 @@
 LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f098732a73b5f6f3430472f5b094ffdb"
 
-SRC_URI = "git://git@github.com/cu-ecen-aeld/assignment-7-ericksyndrome.git;protocol=ssh;branch=master \
+SRC_URI = "git://git@github.com/cu-ecen-aeld/assignments-3-and-later-ericksyndrome.git;protocol=ssh;branch=main \
 			file://aesd-char-driver_init \
 			"
 
