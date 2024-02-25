@@ -9,8 +9,8 @@
 # represented as "Unknown" below, you will need to check them yourself:
 #   LICENSE
 # 
-LICENSE = "CLOSED"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=f098732a73b5f6f3430472f5b094ffdb"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
 SRC_URI = "git://git@github.com/cu-ecen-aeld/assignments-3-and-later-ericksyndrome.git;protocol=ssh;branch=main \
 			file://aesd-char-driver_init \
@@ -18,7 +18,7 @@ SRC_URI = "git://git@github.com/cu-ecen-aeld/assignments-3-and-later-ericksyndro
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "fd8f404c9de73285948c1e7f17c81f4fbe50e18d"
+SRCREV = "6dc48058ac61d1041ffa3a11957b90cbd8edb8ba"
 
 S = "${WORKDIR}/git/aesd-char-driver"
 
